@@ -1,4 +1,4 @@
-# cyber-daemon
+# cyber-daemon-app
 
 ## Install
 
