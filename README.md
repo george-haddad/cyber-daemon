@@ -1,9 +1,5 @@
 # cyber-daemon
 
-## Install
+This is the start of a very long and interesting journey on sharpening my coding skills.
 
-```bash
-npm run build
-docker build -t cyber-daemon-app .
-docker run -p 3000:3000 cyber-daemon-app
-```
+... yet again.
