@@ -6,7 +6,7 @@ public class BaseObject {
         public String value;
 
         public BaseObject() {
-                
+
         }
 
         public BaseObject(String name, String value) {
