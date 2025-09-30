@@ -1,11 +1,8 @@
-# revenant
+# Revenant
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+I will write a description later
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
-
-## Install
-
+## Build
 
 ```shell script
 ./mvnw install
