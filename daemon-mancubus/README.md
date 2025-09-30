@@ -2,18 +2,25 @@
 
 This project uses Vert.x
 
-## Install
+## Build
 
-Compile and package the application
+Set up your environment variables
 
 ```shell script
-./mvnw clean package
+export MANCUBUS_VULN_HOST=vulnerability.circl.lu
+export MANCUBUS_VULN_APIKEY=<get your own api key>
 ```
 
-Run application tests
+Compile, test and package the application
 
 ```shell script
-./mvnw clean test
+./mvnw package
+```
+
+Run the tests
+
+```shell script
+./mvnw test
 ```
 
 Run the application
