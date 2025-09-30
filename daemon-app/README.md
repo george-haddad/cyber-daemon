@@ -1,4 +1,6 @@
-# cyber-daemon-app
+# Daemon-App
+
+This project uses React + Typescript + Vite
 
 ## Install
 

@@ -1,6 +1,6 @@
 # Revenant
 
-I will write a description later
+This project uses Quarkus
 
 ## Build
 

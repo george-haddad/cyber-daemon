@@ -1,4 +1,6 @@
-# arch-vile
+# Arch-Vile
+
+This project uses Nodejs + Koa
 
 ## Run
 
