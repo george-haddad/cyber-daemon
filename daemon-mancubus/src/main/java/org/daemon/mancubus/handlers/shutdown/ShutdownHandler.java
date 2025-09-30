@@ -22,7 +22,7 @@ public final class ShutdownHandler implements Handler<RoutingContext> {
                         .putHeader("content-type", "text/plain")
                         .setStatusCode(200)
                         .end("dying");
-                
+
                 logger.info("Exiting");
                 vertx.close();
         }

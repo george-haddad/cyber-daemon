@@ -17,22 +17,30 @@ public class MainVerticle extends VerticleBase {
 
         @Override
         public Future<?> start() {
-                String name = config().getString("name", "Mancubus");
+                init();
+
+                final String name = config().getString("name", "Mancubus");
 
                 HttpServer server = vertx.createHttpServer();
                 Router router = Router.router(vertx);
                 router.route("/").handler(new RootIndexHandler());
-                router.route("/vulnerabilities").handler(new VulnerabilityHandler(vertx));
+                router.route("/vulnerabilities/:id").handler(new VulnerabilityHandler(vertx));
                 router.route("/shutdown").handler(new ShutdownHandler(vertx));
 
                 Future<HttpServer> future = server.requestHandler(router).listen(8080)
-                        .onSuccess(httpServer -> {
-                                logger.info("HTTP server " + name + " started on port " + httpServer.actualPort());
-                        })
-                        .onFailure(throwable -> {
-                                logger.error("HTTP server " + name + " could not start", throwable);
-                        });
+                                .onSuccess(httpServer -> {
+                                        logger.info("HTTP server {} started on port {}", name, httpServer.actualPort());
+                                })
+                                .onFailure(throwable -> {
+                                        logger.error("HTTP server {} could not start", name, throwable);
+                                });
 
                 return future;
+        }
+
+        private void init() {
+                config()
+                                .put("vulnerabiltiy-lookup.host", System.getenv("MANCUBUS_VULN_HOST"))
+                                .put("vulnerabiltiy-lookup.apikey", System.getenv("MANCUBUS_VULN_APIKEY"));
         }
 }
