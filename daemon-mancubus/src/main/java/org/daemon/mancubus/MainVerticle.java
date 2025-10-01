@@ -9,9 +9,6 @@ import org.slf4j.LoggerFactory;
 import io.vertx.core.Future;
 import io.vertx.core.VerticleBase;
 import io.vertx.core.http.HttpServer;
-import io.vertx.core.json.JsonObject;
-import io.vertx.ext.healthchecks.HealthChecks;
-import io.vertx.ext.healthchecks.Status;
 import io.vertx.ext.web.Router;
 
 public class MainVerticle extends VerticleBase {
