@@ -9,6 +9,9 @@ import org.slf4j.LoggerFactory;
 import io.vertx.core.Future;
 import io.vertx.core.VerticleBase;
 import io.vertx.core.http.HttpServer;
+import io.vertx.core.json.JsonObject;
+import io.vertx.ext.healthchecks.HealthChecks;
+import io.vertx.ext.healthchecks.Status;
 import io.vertx.ext.web.Router;
 
 public class MainVerticle extends VerticleBase {
@@ -17,7 +20,8 @@ public class MainVerticle extends VerticleBase {
 
         @Override
         public Future<?> start() {
-                init();
+                config().put("vulnerabiltiy-lookup.host", System.getenv("MANCUBUS_VULN_HOST"));
+                config().put("vulnerabiltiy-lookup.apikey", System.getenv("MANCUBUS_VULN_APIKEY"));
 
                 final String name = config().getString("name", "Mancubus");
 
@@ -36,11 +40,5 @@ public class MainVerticle extends VerticleBase {
                                 });
 
                 return future;
-        }
-
-        private void init() {
-                config()
-                                .put("vulnerabiltiy-lookup.host", System.getenv("MANCUBUS_VULN_HOST"))
-                                .put("vulnerabiltiy-lookup.apikey", System.getenv("MANCUBUS_VULN_APIKEY"));
         }
 }
